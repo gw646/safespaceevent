@@ -30,17 +30,9 @@ export async function onRequestGet(context) {
   if (db) {
     try {
       // Ensure table exists (in case no one has registered yet)
-      await db.exec(`
-        CREATE TABLE IF NOT EXISTS registrants (
-          id         INTEGER PRIMARY KEY AUTOINCREMENT,
-          full_name  TEXT    NOT NULL,
-          email      TEXT    NOT NULL,
-          phone      TEXT    NOT NULL,
-          paid       INTEGER NOT NULL DEFAULT 0,
-          wipay_ref  TEXT,
-          created_at TEXT    NOT NULL DEFAULT (datetime('now'))
-        );
-      `);
+     await db.prepare(
+  "CREATE TABLE IF NOT EXISTS registrants (id INTEGER PRIMARY KEY AUTOINCREMENT, full_name TEXT NOT NULL, email TEXT NOT NULL, phone TEXT NOT NULL, paid INTEGER NOT NULL DEFAULT 0, wipay_ref TEXT, created_at TEXT NOT NULL DEFAULT (datetime('now')))"
+).run();
 
       const result = await db
         .prepare("SELECT * FROM registrants ORDER BY created_at DESC")
