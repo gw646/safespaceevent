@@ -1,10 +1,5 @@
-const WIPAY_ENDPOINTS = {
-  TT: "https://tt.wipayfinancial.com/plugins/payments/request",
-  JM: "https://jm.wipayfinancial.com/plugins/payments/request",
-  BB: "https://bb.wipayfinancial.com/plugins/payments/request",
-  GY: "https://gy.wipayfinancial.com/plugins/payments/request",
-};
-
+const WIPAY_ENDPOINT  = "https://tt.wipayfinancial.com/plugins/payments/request";
+const WIPAY_ME_LINK   = "https://tt.wipayfinancial.com/to_me/themakeddagroup";
 const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwLNQm4aEuLiicqQHIv3VQIo4jiqmct3ddDMoLE1u6ODd2gOVdfe6B1Ha0PNsMCh_-9wQ/exec";
 
 export async function onRequestPost(context) {
@@ -19,7 +14,6 @@ export async function onRequestPost(context) {
   // Parse body
   let full_name, email, phone;
   const ct = request.headers.get("content-type") || "";
-
   try {
     if (ct.includes("application/json")) {
       ({ full_name, email, phone } = await request.json());
@@ -41,66 +35,63 @@ export async function onRequestPost(context) {
     return jsonError("Invalid email address.", 400, corsHeaders);
   }
 
-  // D1
+  // D1 — save registrant
   const db = env.DB;
-  if (!db) return jsonError("Database binding not configured.", 500, corsHeaders);
+  let registrantId = 0;
 
-  // Create table
-  try {
-    await db.prepare(
-      "CREATE TABLE IF NOT EXISTS registrants (id INTEGER PRIMARY KEY AUTOINCREMENT, full_name TEXT NOT NULL, email TEXT NOT NULL, phone TEXT NOT NULL, paid INTEGER NOT NULL DEFAULT 0, wipay_ref TEXT, created_at TEXT NOT NULL DEFAULT (datetime('now')))"
-    ).run();
-  } catch (e) { /* already exists */ }
+  if (db) {
+    try {
+      await db.prepare(
+        "CREATE TABLE IF NOT EXISTS registrants (id INTEGER PRIMARY KEY AUTOINCREMENT, full_name TEXT NOT NULL, email TEXT NOT NULL, phone TEXT NOT NULL, paid INTEGER NOT NULL DEFAULT 0, wipay_ref TEXT, created_at TEXT NOT NULL DEFAULT (datetime('now')))"
+      ).run();
 
-  // Insert or get existing
-  let registrantId;
-  try {
-    const existing = await db
-      .prepare("SELECT id FROM registrants WHERE email = ?")
-      .bind(email.toLowerCase().trim())
-      .first();
-
-    if (existing) {
-      registrantId = existing.id;
-    } else {
-      const insert = await db
-        .prepare("INSERT INTO registrants (full_name, email, phone) VALUES (?, ?, ?) RETURNING id")
-        .bind(full_name.trim(), email.toLowerCase().trim(), phone.trim())
+      const existing = await db
+        .prepare("SELECT id FROM registrants WHERE email = ?")
+        .bind(email.toLowerCase().trim())
         .first();
-      registrantId = insert.id;
+
+      if (existing) {
+        registrantId = existing.id;
+      } else {
+        const insert = await db
+          .prepare("INSERT INTO registrants (full_name, email, phone) VALUES (?, ?, ?) RETURNING id")
+          .bind(full_name.trim(), email.toLowerCase().trim(), phone.trim())
+          .first();
+        registrantId = insert.id;
+      }
+    } catch (e) {
+      console.error("D1 error:", e.message);
+      // Don't block — continue to payment
     }
-  } catch (e) {
-    return jsonError("Database error: " + e.message, 500, corsHeaders);
   }
 
-  // Save to Google Sheets (non-blocking)
-  try {
-    await fetch(GOOGLE_SHEET_URL, {
-      method:  "POST",
-      headers: { "Content-Type": "application/json" },
-      body:    JSON.stringify({ full_name, email, phone }),
-    });
-  } catch (e) {
-    console.error("Google Sheets error:", e.message);
-  }
+  // Google Sheets — non-blocking
+  fetch(GOOGLE_SHEET_URL, {
+    method:  "POST",
+    headers: { "Content-Type": "application/json" },
+    body:    JSON.stringify({ full_name, email, phone }),
+  }).catch(e => console.error("Sheets error:", e.message));
 
   // WiPay
   const environment   = env.WIPAY_ENVIRONMENT   || "live";
-  const country       = env.WIPAY_COUNTRY_CODE  || "TT";
   const feeStructure  = env.WIPAY_FEE_STRUCTURE || "customer_pay";
   const accountNumber = env.WIPAY_ACCOUNT_NUMBER;
   const apiKey        = env.WIPAY_API_KEY;
   const siteUrl       = env.SITE_URL            || "https://www.themakeddagroup.com";
 
-  if (!accountNumber) return jsonError("WiPay account number not configured.", 500, corsHeaders);
-  if (!apiKey)        return jsonError("WiPay API key not configured.", 500, corsHeaders);
-
-  const wipayEndpoint = `${WIPAY_ENDPOINTS[country] ?? WIPAY_ENDPOINTS.TT}?api_key=${apiKey}`;
+  // If WiPay not configured, fall back to me link
+  if (!accountNumber || !apiKey) {
+    return new Response(JSON.stringify({ redirect_url: WIPAY_ME_LINK }), {
+      status: 200,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
 
   const wipayPayload = new URLSearchParams({
+    api_key:        apiKey,
     account_number: accountNumber,
     avs:            "0",
-    country_code:   country,
+    country_code:   "TT",
     currency:       "TTD",
     environment:    environment,
     fee_structure:  feeStructure,
@@ -112,7 +103,7 @@ export async function onRequestPost(context) {
   });
 
   try {
-    const wipayRes  = await fetch(wipayEndpoint, {
+    const wipayRes  = await fetch(WIPAY_ENDPOINT, {
       method:  "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body:    wipayPayload.toString(),
@@ -120,22 +111,32 @@ export async function onRequestPost(context) {
 
     const wipayData = await wipayRes.json();
 
-    if (!wipayData.url) {
-      return jsonError(wipayData.message || "WiPay did not return a payment URL.", 502, corsHeaders);
+    if (wipayData.url) {
+      // Success — update DB and redirect
+      if (db && wipayData.transaction_id) {
+        await db.prepare("UPDATE registrants SET wipay_ref = ? WHERE id = ?")
+          .bind(wipayData.transaction_id, registrantId).run();
+      }
+      return new Response(JSON.stringify({ redirect_url: wipayData.url }), {
+        status: 200,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
     }
 
-    if (wipayData.transaction_id) {
-      await db.prepare("UPDATE registrants SET wipay_ref = ? WHERE id = ?")
-        .bind(wipayData.transaction_id, registrantId).run();
-    }
-
-    return new Response(JSON.stringify({ redirect_url: wipayData.url }), {
-      status:  200,
+    // WiPay returned error — fall back to me link
+    console.error("WiPay error:", JSON.stringify(wipayData));
+    return new Response(JSON.stringify({ redirect_url: WIPAY_ME_LINK }), {
+      status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
 
   } catch (err) {
-    return jsonError("Payment gateway error: " + err.message, 502, corsHeaders);
+    // Network error — fall back to me link
+    console.error("WiPay fetch error:", err.message);
+    return new Response(JSON.stringify({ redirect_url: WIPAY_ME_LINK }), {
+      status: 200,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
   }
 }
 
