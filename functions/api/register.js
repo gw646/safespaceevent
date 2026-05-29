@@ -65,7 +65,7 @@ export async function onRequestPost(context) {
     }
   }
 
-  // Google Sheets — non-blocking
+  // Google Sheets  non-blocking
   fetch(GOOGLE_SHEET_URL, {
     method:  "POST",
     headers: { "Content-Type": "application/json" },
