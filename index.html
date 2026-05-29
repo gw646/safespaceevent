@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everyday Safety Skills - SafeSpace Presents</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body { font-family: 'Roboto', sans-serif !important; }
+        .light-grid {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <div class="bg-amber-500 text-slate-950 text-center py-2.5 text-xs md:text-sm font-bold tracking-wider uppercase px-4 border-b border-amber-600/30">
+        ⚡ Intro Special: Only $50 USD! Register now — Limited training paths available!
+    </div>
+
+    <header class="light-grid relative min-h-[60vh] flex items-center justify-center pt-16 pb-20 px-6 text-center border-b border-slate-200">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-600 font-medium text-xs px-4 py-1.5 rounded-full tracking-wider mb-6 uppercase">
+                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> SAFESPACE PRESENTS
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-slate-900 mb-6 uppercase">
+                EVERYDAY <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">SAFETY SKILLS</span>
+            </h1>
+            <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+                An Intensive 4-week Threat-Mitigation & Security Training Program via <span class="text-indigo-600 font-bold">Zoom Workplace</span>. Equip yourself with elite tactical awareness for physical and digital defense.
+            </p>
+            <button onclick="openModal()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg px-10 py-4.5 rounded-xl shadow-xl hover:shadow-blue-200 transition transform hover:-translate-y-0.5 cursor-pointer tracking-wide uppercase">
+                🛡️ SECURE YOUR PORTAL ACCESS ($50 USD)
+            </button>
+        </div>
+    </header>
+
+    <section class="py-20 max-w-6xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+            <h2 class="text-xs font-bold tracking-widest text-blue-600 uppercase mb-2">// MODULE MATRIX</h2>
+            <p class="text-3xl font-extrabold text-slate-900 uppercase tracking-tight">Core Training Pillars</p>
+            <p class="text-sm text-slate-500 mt-2">Master tactical awareness across 4 distinct operational security environments.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                <div>
+                    <div class="text-4xl mb-4">👁️</div>
+                    <div class="text-blue-600 font-bold text-xs tracking-wider mb-1">MODULE 01</div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">Situational Awareness</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Learn behavioral profiling, anomaly detection, environmental scanning, and threat identification strategies before an escalation occurs.</p>
+                </div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                <div>
+                    <div class="text-4xl mb-4">💻</div>
+                    <div class="text-blue-600 font-bold text-xs tracking-wider mb-1">MODULE 02</div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">Digital & Cyber Security</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Protect your virtual real estate. Safeguard online identities, counter phishing frameworks, secure your data routers, and mitigate social engineering exploits.</p>
+                </div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                <div>
+                    <div class="text-4xl mb-4">🏡</div>
+                    <div class="text-blue-600 font-bold text-xs tracking-wider mb-1">MODULE 03</div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">Home & Property Safety</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Hardening architectures for your personal space. Establish baseline perimeters, emergency fallback protocols, and home invasion defense mechanisms.</p>
+                </div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                <div>
+                    <div class="text-4xl mb-4">🚗</div>
+                    <div class="text-blue-600 font-bold text-xs tracking-wider mb-1">MODULE 04</div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">Safe Travel & Commuting</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Mitigate transit risks. Learn defensive pathing, hijack avoidance strategies, vehicle tracking counter-measures, and urban movement safety navigation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-slate-100 border-y border-slate-200 py-16 px-6">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-3">📅 Live Training Schedule</h3>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex justify-between items-center pb-3 border-b border-slate-100">
+                        <span class="font-medium text-slate-500">[SESSION 1]</span> <strong class="text-slate-800">June 15, 2026</strong>
+                    </li>
+                    <li class="flex justify-between items-center pb-3 border-b border-slate-100">
+                        <span class="font-medium text-slate-500">[SESSION 2]</span> <strong class="text-slate-800">June 22, 2026</strong>
+                    </li>
+                    <li class="flex justify-between items-center pb-3 border-b border-slate-100">
+                        <span class="font-medium text-slate-500">[SESSION 3]</span> <strong class="text-slate-800">June 29, 2026</strong>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span class="font-medium text-slate-500">[SESSION 4]</span> <strong class="text-blue-600">July 06, 2026</strong>
+                    </li>
+                </ul>
+                <p class="text-[11px] text-slate-400 mt-4 italic text-center">Sessions are recorded dynamically for authenticated path registrants.</p>
+            </div>
+            <div>
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-4 uppercase tracking-tight">Strategic Preparedness</h3>
+                <p class="text-slate-600 mb-6 leading-relaxed text-sm md:text-base">
+                    An engaging, highly interactive, and intensely practical threat-mitigation blueprint explicitly engineered to dismantle real-world vulnerabilities. No theoretical filler — just execution metrics.
+                </p>
+                <div class="flex items-start gap-4 bg-blue-50 border border-blue-100 p-5 rounded-xl">
+                    <span class="text-2xl text-blue-600">🎓</span>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm md:text-base">Verified Certificate Included</h4>
+                        <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                            An official Certificate of Participation will be issued and distributed immediately upon successful completion of the training track verification process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 max-w-5xl mx-auto px-6 relative">
+        <div class="bg-white rounded-2xl p-8 md:p-12 border border-slate-200 shadow-sm relative overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div>
+                    <span class="inline-block bg-blue-50 text-blue-600 font-bold text-xs px-3 py-1 rounded border border-blue-100 mb-3 uppercase tracking-wider">COMMAND EXPERTISE</span>
+                    <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">Lead Instructor</h2>
+                </div>
+                <div class="md:col-span-2 border-t md:border-t-0 md:border-l border-slate-200 pt-6 md:pt-0 md:pl-8">
+                    <h3 class="text-2xl font-extrabold text-slate-900">Dr. Wayne Hayde <span class="text-blue-600 font-medium">"The Watchman"</span></h3>
+                    <p class="text-xs text-slate-400 font-mono mt-1 mb-4">BA, LLB, LEC, MSC, MCL, DBA</p>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        Bringing uncompromised field knowledge across legal, tactical, and international systems. A decorated framework architect specializing in global security operational mechanics.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-slate-700 font-bold text-[11px] uppercase tracking-wider">
+                        <div class="bg-slate-50 px-3 py-2.5 rounded-lg border border-slate-200 text-center">⚖️ Attorney at Law</div>
+                        <div class="bg-slate-50 px-3 py-2.5 rounded-lg border border-slate-200 text-center">🚔 Retired Police Officer</div>
+                        <div class="bg-slate-50 px-3 py-2.5 rounded-lg border border-slate-200 text-center">🌐 Retired UN Director</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── Registration Modal ──────────────────────────────────────── -->
+    <div id="captureModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-xs hidden p-4">
+        <div class="bg-white border border-slate-200 w-full max-w-md rounded-2xl p-8 relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 font-bold text-xl cursor-pointer">&times;</button>
+            <h3 class="text-xl font-bold text-slate-900 mb-2 uppercase tracking-tight">Secure Registration Portal</h3>
+            <p class="text-xs text-slate-500 mb-6">Enter your details to proceed to the secure WiPay payment gateway.</p>
+
+            <!-- Error banner (hidden by default) -->
+            <div id="formError" class="hidden bg-red-50 border border-red-200 text-red-700 text-xs font-medium px-4 py-3 rounded-lg mb-4"></div>
+
+            <form id="signupForm" class="space-y-4" onsubmit="handleRegistration(event)">
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1 tracking-wider">Full Name</label>
+                    <input type="text" id="full_name" name="full_name" required
+                           class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-blue-500 text-sm font-medium">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1 tracking-wider">Email Address</label>
+                    <input type="email" id="email" name="email" required
+                           class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-blue-500 text-sm font-medium">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1 tracking-wider">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required
+                           class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-blue-500 text-sm font-medium">
+                </div>
+                <button type="submit" id="submitBtn"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg text-xs uppercase tracking-widest transition cursor-pointer shadow-md mt-2">
+                    Proceed to Secure Payment
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-white text-slate-400 text-center py-14 px-6 border-t border-slate-200">
+        <div class="max-w-2xl mx-auto">
+            <a href="https://wa.me/12462451634" target="_blank"
+               class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-6 py-3.5 rounded-xl mb-8 tracking-wider uppercase transition shadow-md">
+                💬 Contact Co-Host Candace La Borde
+            </a>
+            <div class="border-t border-slate-100 pt-8 max-w-md mx-auto">
+                <p class="text-[11px] font-bold uppercase text-slate-400 mb-4 tracking-widest">Secured Gateway Environment</p>
+                <div class="flex items-center justify-center gap-5 filter grayscale opacity-80 hover:opacity-100 transition">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-5 object-contain">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="h-7 object-contain">
+                    <img src="https://wipayfinancial.com/wp-content/uploads/2023/11/WiPay-Logo-RGB-Full-Color.png" alt="WiPay" class="h-6 object-contain">
+                </div>
+            </div>
+            <p class="text-[10px] font-medium text-slate-400 mt-8 tracking-wider">&copy; 2026 SAFESPACE. ALL CHANNELS SECURED.</p>
+        </div>
+    </footer>
+
+    <script>
+        /* ── Modal helpers ─────────────────────────────────────────── */
+        function openModal() {
+            document.getElementById('captureModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('captureModal').classList.add('hidden');
+            document.body.style.overflow = '';
+            document.getElementById('formError').classList.add('hidden');
+            document.getElementById('formError').textContent = '';
+        }
+
+        // Close on backdrop click
+        document.getElementById('captureModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        /* ── Form submission ────────────────────────────────────────── */
+        async function handleRegistration(e) {
+            e.preventDefault();
+
+            const btn       = document.getElementById('submitBtn');
+            const errorBox  = document.getElementById('formError');
+
+            // Reset error
+            errorBox.classList.add('hidden');
+            errorBox.textContent = '';
+
+            // Collect values
+            const full_name = document.getElementById('full_name').value.trim();
+            const email     = document.getElementById('email').value.trim();
+            const phone     = document.getElementById('phone').value.trim();
+
+            if (!full_name || !email || !phone) {
+                showError('Please fill in all fields.');
+                return;
+            }
+
+            // Loading state
+            btn.disabled    = true;
+            btn.textContent = 'INITIALIZING SECURE PORTAL…';
+
+            try {
+                const res = await fetch('/api/register', {
+                    method:  'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body:    new URLSearchParams({ full_name, email, phone }).toString(),
+                });
+
+                const data = await res.json();
+
+                if (data.redirect_url) {
+                    // Hand off to WiPay
+                    window.location.href = data.redirect_url;
+                } else {
+                    showError(data.error || 'Registration failed. Please try again.');
+                    resetBtn();
+                }
+            } catch (err) {
+                console.error('Registration error:', err);
+                showError('Network error — please check your connection and try again.');
+                resetBtn();
+            }
+
+            function showError(msg) {
+                errorBox.textContent = msg;
+                errorBox.classList.remove('hidden');
+            }
+            function resetBtn() {
+                btn.disabled    = false;
+                btn.textContent = 'Proceed to Secure Payment';
+            }
+        }
+    </script>
+</body>
+</html>
