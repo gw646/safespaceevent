@@ -6,197 +6,241 @@
     <title>Everyday Safety Skills - SafeSpace Presents</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Oswald:wght@500;700;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
         body { font-family: 'Roboto', sans-serif !important; }
-        .light-grid {
-            background-color: #f8fafc;
-            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+        .font-header { font-family: 'Oswald', sans-serif !important; }
+        .font-cursive { font-family: 'Caveat', cursive !important; }
+        
+        .dark-grid {
+            background-color: #0f172a; 
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
             background-size: 16px 16px;
+        }
+        .text-shadow-heavy {
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5);
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+<body class="bg-slate-900 text-slate-200 font-sans antialiased overflow-x-hidden">
 
-    <div class="bg-amber-500 text-slate-950 text-center py-2.5 text-xs md:text-sm font-bold tracking-wider uppercase px-4 border-b border-amber-600/30">
-        ⚡ Intro Special: Only $50 USD! Register now — Limited training paths available!
+    <!-- Top Banner -->
+    <div class="bg-red-700 text-white text-center py-3 text-sm md:text-base font-bold tracking-wider uppercase px-4 border-b border-red-800 shadow-lg font-header z-50 relative">
+        INTRO SPECIAL! <span class="text-yellow-400 text-xl mx-2">ONLY $50 USD!</span> REGISTER NOW — LIMITED SPOTS AVAILABLE!
     </div>
 
-    <header class="light-grid relative min-h-[60vh] flex items-center justify-center pt-16 pb-20 px-6 text-center border-b border-slate-200">
-        <div class="max-w-4xl mx-auto relative z-10">
-            <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-600 font-medium text-xs px-4 py-1.5 rounded-full tracking-wider mb-6 uppercase">
-                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> SAFESPACE PRESENTS
+    <!-- Hero Section -->
+    <header class="dark-grid relative min-h-screen flex flex-col items-center justify-start pt-12 pb-20 px-6 text-center border-b border-teal-900/50">
+        
+        <div class="max-w-5xl mx-auto relative z-10 flex flex-col items-center">
+            <div class="text-teal-400 font-bold text-lg md:text-xl tracking-[0.3em] mb-4 uppercase">
+                &mdash; SAFESPACE PRESENTS &mdash;
             </div>
-            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-slate-900 mb-6 uppercase">
-                EVERYDAY <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">SAFETY SKILLS</span>
+            
+            <h1 class="font-header text-6xl md:text-8xl lg:text-9xl font-black uppercase leading-[0.85] tracking-tight mb-2">
+                <span class="text-white drop-shadow-xl">EVERYDAY</span><br>
+                <span class="text-yellow-500 text-shadow-heavy">SAFETY SKILLS</span>
             </h1>
-            <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-                An Intensive 4-week Threat-Mitigation & Security Training Program via <span class="text-indigo-600 font-bold">Zoom Workplace</span>. Equip yourself with elite tactical awareness for physical and digital defense.
-            </p>
-            <button onclick="openModal()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg px-10 py-4.5 rounded-xl shadow-xl hover:shadow-blue-200 transition transform hover:-translate-y-0.5 cursor-pointer tracking-wide uppercase">
-                🛡️ SECURE YOUR PORTAL ACCESS ($50 USD)
+            
+            <div class="font-cursive text-4xl md:text-5xl text-teal-300 mt-2 mb-8 transform -rotate-2 drop-shadow-lg">
+                Real Skills. Real Life. Real Safety.
+            </div>
+
+            <div class="bg-teal-900/40 border border-teal-500/50 px-6 py-2 rounded-lg backdrop-blur-sm mb-8">
+                <p class="text-base md:text-xl text-teal-100 font-bold tracking-wide uppercase">
+                    An Intensive 4-week Training Program via <span class="text-white bg-blue-600 px-2 py-0.5 rounded ml-1">zoom 📹</span>
+                </p>
+            </div>
+            
+            <button onclick="openModal()" class="bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-header font-black text-xl md:text-2xl px-12 py-5 rounded-xl shadow-[0_0_20px_rgba(234,179,8,0.4)] hover:shadow-[0_0_30px_rgba(234,179,8,0.6)] transition transform hover:-translate-y-1 cursor-pointer tracking-wide uppercase mb-12">
+                SECURE YOUR PORTAL ACCESS
             </button>
+        </div>
+
+        <!-- Integrated Poster Image -->
+        <div class="w-full max-w-5xl mx-auto shadow-2xl rounded-2xl overflow-hidden border-4 border-slate-700 relative z-10 hover:border-teal-500 transition duration-300">
+            <img src="image_f8c202.jpg" alt="Everyday Safety Skills Poster" class="w-full h-auto object-cover block">
         </div>
     </header>
 
-    <section class="py-20 max-w-6xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto mb-14">
-            <h2 class="text-xs font-bold tracking-widest text-blue-600 uppercase mb-2">// MODULE MATRIX</h2>
-            <p class="text-3xl font-extrabold text-slate-900 uppercase tracking-tight">Core Training Pillars</p>
-            <p class="text-sm text-slate-500 mt-2">Master tactical awareness across 4 distinct operational security environments.</p>
+    <!-- Topics / Modules Section -->
+    <section class="py-16 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl font-header font-bold text-teal-400 uppercase tracking-widest bg-slate-900 inline-block px-4">Topics Include:</h2>
+            <div class="h-px w-full bg-teal-800/50 -mt-4 mb-4 z-[-1] relative"></div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-                <div>
-                    <div class="text-4xl mb-4">👁️</div>
-                    <div class="text-blue-600 font-bold text-xs tracking-wider mb-1">MODULE 01</div>
-                    <h3 class="font-bold text-lg text-slate-900 mb-2">Situational Awareness</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">Learn behavioral profiling, anomaly detection, environmental scanning, and threat identification strategies before an escalation occurs.</p>
-                </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-slate-800 border-t-4 border-teal-500 rounded-lg p-5 flex items-center gap-4 shadow-lg">
+                <div class="text-teal-400 text-3xl">✔️</div>
+                <h3 class="font-bold text-white text-sm md:text-base uppercase tracking-wide">Situational Awareness</h3>
             </div>
-            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-                <div>
-                    <div class="text-4xl mb-4">💻</div>
-                    <div class="text-blue-600 font-bold text-xs tracking-wider mb-1">MODULE 02</div>
-                    <h3 class="font-bold text-lg text-slate-900 mb-2">Digital & Cyber Security</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">Protect your virtual real estate. Safeguard online identities, counter phishing frameworks, secure your data routers, and mitigate social engineering exploits.</p>
-                </div>
+            <div class="bg-slate-800 border-t-4 border-yellow-500 rounded-lg p-5 flex items-center gap-4 shadow-lg">
+                <div class="text-yellow-500 text-3xl">🔓</div>
+                <h3 class="font-bold text-white text-sm md:text-base uppercase tracking-wide">Digital & Cyber Security</h3>
             </div>
-            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-                <div>
-                    <div class="text-4xl mb-4">🏡</div>
-                    <div class="text-blue-600 font-bold text-xs tracking-wider mb-1">MODULE 03</div>
-                    <h3 class="font-bold text-lg text-slate-900 mb-2">Home & Property Safety</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">Hardening architectures for your personal space. Establish baseline perimeters, emergency fallback protocols, and home invasion defense mechanisms.</p>
-                </div>
+            <div class="bg-slate-800 border-t-4 border-teal-500 rounded-lg p-5 flex items-center gap-4 shadow-lg">
+                <div class="text-teal-400 text-3xl">🏠</div>
+                <h3 class="font-bold text-white text-sm md:text-base uppercase tracking-wide">Home & Property Safety</h3>
             </div>
-            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-                <div>
-                    <div class="text-4xl mb-4">🚗</div>
-                    <div class="text-blue-600 font-bold text-xs tracking-wider mb-1">MODULE 04</div>
-                    <h3 class="font-bold text-lg text-slate-900 mb-2">Safe Travel & Commuting</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">Mitigate transit risks. Learn defensive pathing, hijack avoidance strategies, vehicle tracking counter-measures, and urban movement safety navigation.</p>
-                </div>
+            <div class="bg-slate-800 border-t-4 border-teal-500 rounded-lg p-5 flex items-center gap-4 shadow-lg">
+                <div class="text-teal-400 text-3xl">🚗</div>
+                <h3 class="font-bold text-white text-sm md:text-base uppercase tracking-wide">Safe Travel & Commuting</h3>
             </div>
         </div>
     </section>
 
-    <section class="bg-slate-100 border-y border-slate-200 py-16 px-6">
-        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-                <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-3">📅 Live Training Schedule</h3>
-                <ul class="space-y-4 text-sm">
-                    <li class="flex justify-between items-center pb-3 border-b border-slate-100">
-                        <span class="font-medium text-slate-500">[SESSION 1]</span> <strong class="text-slate-800">June 15, 2026</strong>
-                    </li>
-                    <li class="flex justify-between items-center pb-3 border-b border-slate-100">
-                        <span class="font-medium text-slate-500">[SESSION 2]</span> <strong class="text-slate-800">June 22, 2026</strong>
-                    </li>
-                    <li class="flex justify-between items-center pb-3 border-b border-slate-100">
-                        <span class="font-medium text-slate-500">[SESSION 3]</span> <strong class="text-slate-800">June 29, 2026</strong>
-                    </li>
-                    <li class="flex justify-between items-center">
-                        <span class="font-medium text-slate-500">[SESSION 4]</span> <strong class="text-blue-600">July 06, 2026</strong>
-                    </li>
-                </ul>
-                <p class="text-[11px] text-slate-400 mt-4 italic text-center">Sessions are recorded dynamically for authenticated path registrants.</p>
+    <!-- Schedule & Information Details -->
+    <section class="pb-16 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Dates Panel 1 (Layout Fixed) -->
+            <div class="bg-slate-800/80 border border-teal-500/30 rounded-xl p-6 shadow-xl relative overflow-hidden">
+                <h3 class="text-teal-400 font-bold text-center mb-6 uppercase tracking-widest text-lg">4-Week Training Program</h3>
+                <div class="flex gap-4">
+                    <div class="text-teal-500 text-5xl">📅</div>
+                    <ul class="space-y-3 font-header text-lg text-white w-full">
+                        <li class="flex justify-between items-center w-full">
+                            <div><span class="text-yellow-500 text-sm mr-2">●</span> AUGUST 3, 2026</div>
+                            <div class="text-teal-300 font-sans text-sm">7:00 - 9:30PM</div>
+                        </li>
+                        <li class="flex justify-between items-center w-full">
+                            <div><span class="text-yellow-500 text-sm mr-2">●</span> AUGUST 10, 2026</div>
+                            <div class="text-teal-300 font-sans text-sm">7:00 - 9:30PM</div>
+                        </li>
+                        <li class="flex justify-between items-center w-full">
+                            <div><span class="text-yellow-500 text-sm mr-2">●</span> AUGUST 17, 2026</div>
+                            <div class="text-teal-300 font-sans text-sm">7:00 - 9:30PM</div>
+                        </li>
+                        <li class="flex justify-between items-center w-full">
+                            <div><span class="text-yellow-500 text-sm mr-2">●</span> AUGUST 24, 2026</div>
+                            <div class="text-teal-300 font-sans text-sm">7:00 - 9:30PM</div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <h3 class="text-2xl font-extrabold text-slate-900 mb-4 uppercase tracking-tight">Strategic Preparedness</h3>
-                <p class="text-slate-600 mb-6 leading-relaxed text-sm md:text-base">
-                    An engaging, highly interactive, and intensely practical threat-mitigation blueprint explicitly engineered to dismantle real-world vulnerabilities. No theoretical filler — just execution metrics.
-                </p>
-                <div class="flex items-start gap-4 bg-blue-50 border border-blue-100 p-5 rounded-xl">
-                    <span class="text-2xl text-blue-600">🎓</span>
+
+            <!-- Dates Panel 2 & Info -->
+            <div class="space-y-6">
+                <div class="bg-slate-800/80 border border-yellow-500/50 rounded-xl p-6 shadow-xl relative text-center">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-500 text-slate-900 font-bold px-4 py-1 text-sm rounded uppercase">Session Date</span>
+                    <div class="flex items-center justify-center gap-4 mt-2">
+                        <div class="text-yellow-500 text-5xl">🗓️</div>
+                        <div class="text-left">
+                            <div class="font-header text-2xl font-bold text-white uppercase">JULY 22, 2026</div>
+                            <div class="text-teal-300 font-bold">7:00 - 8:00PM</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center px-4">
+                    <h4 class="text-yellow-500 font-header text-xl uppercase mb-2 flex items-center justify-center gap-2">
+                        <span>☀️</span> What to Expect
+                    </h4>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        An engaging, informative and practical training experience designed to help build real-world safety skills for everyday activities.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Expert Advisor Panel -->
+            <div class="bg-slate-800/80 border border-teal-500/30 rounded-xl p-6 shadow-xl flex flex-col items-center md:items-start text-center md:text-left">
+                <h3 class="text-teal-400 font-bold mb-4 uppercase tracking-widest text-lg">Expert Advisor:</h3>
+                <div class="flex items-start gap-4">
+                    <div class="text-teal-500 text-5xl">👨‍💼</div>
                     <div>
-                        <h4 class="font-bold text-slate-900 text-sm md:text-base">Verified Certificate Included</h4>
-                        <p class="text-xs text-slate-600 mt-1 leading-relaxed">
-                            An official Certificate of Participation will be issued and distributed immediately upon successful completion of the training track verification process.
+                        <h4 class="font-header text-2xl font-bold text-white uppercase leading-tight">Dr. Wayne Hayde</h4>
+                        <div class="font-header text-xl text-yellow-500 uppercase mb-2">"The Watchman"</div>
+                        <p class="text-xs text-teal-300 font-medium uppercase mb-2 tracking-wider">
+                            BA, LLB, LEC, MSC, MCL, DBA
+                        </p>
+                        <p class="text-[11px] text-slate-400 uppercase tracking-widest leading-relaxed">
+                            Attorney at Law,<br>
+                            Retired Police Officer,<br>
+                            Retired UN Director
                         </p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 max-w-5xl mx-auto px-6 relative">
-        <div class="bg-white rounded-2xl p-8 md:p-12 border border-slate-200 shadow-sm relative overflow-hidden">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                <div>
-                    <span class="inline-block bg-blue-50 text-blue-600 font-bold text-xs px-3 py-1 rounded border border-blue-100 mb-3 uppercase tracking-wider">COMMAND EXPERTISE</span>
-                    <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">Lead Instructor</h2>
-                </div>
-                <div class="md:col-span-2 border-t md:border-t-0 md:border-l border-slate-200 pt-6 md:pt-0 md:pl-8">
-                    <h3 class="text-2xl font-extrabold text-slate-900">Dr. Wayne Hayde <span class="text-blue-600 font-medium">"The Watchman"</span></h3>
-                    <p class="text-xs text-slate-400 font-mono mt-1 mb-4">BA, LLB, LEC, MSC, MCL, DBA</p>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                        Bringing uncompromised field knowledge across legal, tactical, and international systems. A decorated framework architect specializing in global security operational mechanics.
+                
+                <div class="mt-6 flex items-center gap-3 bg-slate-900 p-3 rounded-lg border border-slate-700 w-full">
+                    <div class="text-2xl">📜</div>
+                    <p class="text-xs text-teal-100 font-bold uppercase tracking-wider">
+                        Certificate of Participation<br><span class="text-slate-400 font-normal">Upon completion of program.</span>
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-slate-700 font-bold text-[11px] uppercase tracking-wider">
-                        <div class="bg-slate-50 px-3 py-2.5 rounded-lg border border-slate-200 text-center">⚖️ Attorney at Law</div>
-                        <div class="bg-slate-50 px-3 py-2.5 rounded-lg border border-slate-200 text-center">🚔 Retired Police Officer</div>
-                        <div class="bg-slate-50 px-3 py-2.5 rounded-lg border border-slate-200 text-center">🌐 Retired UN Director</div>
-                    </div>
                 </div>
             </div>
+            
         </div>
     </section>
 
-    <!-- ─── Registration Modal ──────────────────────────────────────── -->
-    <div id="captureModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-xs hidden p-4">
-        <div class="bg-white border border-slate-200 w-full max-w-md rounded-2xl p-8 relative shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 font-bold text-xl cursor-pointer">&times;</button>
-            <h3 class="text-xl font-bold text-slate-900 mb-2 uppercase tracking-tight">Secure Registration Portal</h3>
-            <p class="text-xs text-slate-500 mb-6">Enter your details to proceed to the secure WiPay payment gateway.</p>
+    <!-- Registration Modal -->
+    <div id="captureModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-4">
+        <div class="bg-slate-900 border border-teal-500/50 w-full max-w-md rounded-2xl p-8 relative shadow-[0_0_40px_rgba(20,184,166,0.15)]">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white font-bold text-2xl cursor-pointer">&times;</button>
+            <h3 class="font-header text-2xl font-bold text-white mb-2 uppercase tracking-wide">Secure Registration Portal</h3>
+            <p class="text-xs text-teal-400 mb-6">Enter your details to proceed to the secure WiPay payment gateway.</p>
 
-            <!-- Error banner (hidden by default) -->
-            <div id="formError" class="hidden bg-red-50 border border-red-200 text-red-700 text-xs font-medium px-4 py-3 rounded-lg mb-4"></div>
+            <div id="formError" class="hidden bg-red-900/50 border border-red-500 text-red-200 text-xs font-medium px-4 py-3 rounded-lg mb-4"></div>
 
             <form id="signupForm" class="space-y-4" onsubmit="handleRegistration(event)">
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1 tracking-wider">Full Name</label>
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Full Name</label>
                     <input type="text" id="full_name" name="full_name" required
-                           class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-blue-500 text-sm font-medium">
+                           class="w-full bg-slate-800 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-teal-500 text-sm font-medium transition">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1 tracking-wider">Email Address</label>
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Email Address</label>
                     <input type="email" id="email" name="email" required
-                           class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-blue-500 text-sm font-medium">
+                           class="w-full bg-slate-800 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-teal-500 text-sm font-medium transition">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1 tracking-wider">Phone Number</label>
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1 tracking-wider">Phone Number</label>
                     <input type="tel" id="phone" name="phone" required
-                           class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-blue-500 text-sm font-medium">
+                           class="w-full bg-slate-800 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-teal-500 text-sm font-medium transition">
                 </div>
                 <button type="submit" id="submitBtn"
-                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg text-xs uppercase tracking-widest transition cursor-pointer shadow-md mt-2">
+                        class="w-full bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-header font-black py-3.5 rounded-lg text-lg uppercase tracking-widest transition cursor-pointer shadow-md mt-4">
                     Proceed to Secure Payment
                 </button>
             </form>
         </div>
     </div>
 
-    <footer class="bg-white text-slate-400 text-center py-14 px-6 border-t border-slate-200">
-        <div class="max-w-2xl mx-auto">
-            <a href="https://wa.me/12462451634" target="_blank"
-               class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-6 py-3.5 rounded-xl mb-8 tracking-wider uppercase transition shadow-md">
-                💬 Contact Co-Host Candace La Borde
-            </a>
-            <div class="border-t border-slate-100 pt-8 max-w-md mx-auto">
-                <p class="text-[11px] font-bold uppercase text-slate-400 mb-4 tracking-widest">Secured Gateway Environment</p>
-                <div class="flex items-center justify-center gap-5 filter grayscale opacity-80 hover:opacity-100 transition">
+    <!-- Footer & Contact -->
+    <footer class="bg-slate-950 text-slate-400 text-center py-10 px-6 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-sm md:text-base font-bold text-teal-400 mb-4 uppercase tracking-widest">
+                For More Information, WhatsApp Co-Host Candace La Borde On
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 mb-6">
+                <a href="https://wa.me/19546625750" target="_blank"
+                   class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white text-sm font-bold px-6 py-3 rounded-xl tracking-wider transition shadow-lg">
+                    💬 (954) 662-5750
+                </a>
+                <span class="text-slate-600 hidden md:inline">|</span>
+                <a href="https://wa.me/12462451634" target="_blank"
+                   class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white text-sm font-bold px-6 py-3 rounded-xl tracking-wider transition shadow-lg">
+                    💬 (246) 245-1634
+                </a>
+            </div>
+            
+            <div class="font-cursive text-2xl text-white mb-8">
+                Get Empowered to Protect Yourself and Your Loved Ones ❤️
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 max-w-md mx-auto">
+                <div class="flex items-center justify-center gap-5 filter grayscale opacity-60 hover:opacity-100 transition">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-5 object-contain">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="h-7 object-contain">
                     <img src="https://wipayfinancial.com/wp-content/uploads/2023/11/WiPay-Logo-RGB-Full-Color.png" alt="WiPay" class="h-6 object-contain">
                 </div>
             </div>
-            <p class="text-[10px] font-medium text-slate-400 mt-8 tracking-wider">&copy; 2026 SAFESPACE. ALL CHANNELS SECURED.</p>
+            <p class="text-[10px] font-medium text-slate-600 mt-6 tracking-widest uppercase">&copy; 2026 SAFESPACE. ALL CHANNELS SECURED.</p>
         </div>
     </footer>
 
     <script>
-        /* ── Modal helpers ─────────────────────────────────────────── */
         function openModal() {
             document.getElementById('captureModal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -208,23 +252,19 @@
             document.getElementById('formError').textContent = '';
         }
 
-        // Close on backdrop click
         document.getElementById('captureModal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
         });
 
-        /* ── Form submission ───────────────────────────────────────── */
         async function handleRegistration(e) {
             e.preventDefault();
 
             const btn       = document.getElementById('submitBtn');
             const errorBox  = document.getElementById('formError');
 
-            // Reset error
             errorBox.classList.add('hidden');
             errorBox.textContent = '';
 
-            // Collect values
             const full_name = document.getElementById('full_name').value.trim();
             const email     = document.getElementById('email').value.trim();
             const phone     = document.getElementById('phone').value.trim();
@@ -234,7 +274,6 @@
                 return;
             }
 
-            // Loading state
             btn.disabled    = true;
             btn.textContent = 'INITIALIZING SECURE PORTAL…';
 
@@ -248,7 +287,6 @@
                 const data = await res.json();
 
                 if (data.redirect_url) {
-                    // Hand off to WiPay
                     window.location.href = data.redirect_url;
                 } else {
                     showError(data.error || 'Registration failed. Please try again.');
